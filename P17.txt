@@ -1,0 +1,34 @@
+Solution 1
+
+from PIL import Image, ImageChops
+import numpy as np
+image = Image.open("mozart.gif")
+shifted = [bytes(np.roll(row, -row.tolist().index(195)).tolist()) for row in np.array(image)]
+Image.frombytes(image.mode, image.size, b"".join(shifted)).show()
+
+
+
+
+
+
+
+
+
+
+from PIL import Image, ImageChops
+
+image = Image.open("mozart.gif")
+
+for y in range(image.size[1]):
+    box = 0, y, image.size[0], y + 1
+    row = image.crop(box)
+    bytes = row.tobytes()
+    i = bytes.index(195)
+    row = ImageChops.offset(row, -i)
+    image.paste(row, box)
+
+image.save("result.gif")
+
+
+Answer
+http://www.pythonchallenge.com/pc/return/romance.html

@@ -1,0 +1,33 @@
+import urllib.request,re
+
+nothing = "12345"
+while True:
+   page =  urllib.request.urlopen("http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=" + nothing).read().decode()
+   print (page)
+   try:
+      nothing = re.search(r"(\d+)$", page).group()
+   except:
+      break
+	  
+"""
+import urllib.request,re
+nuffink = "8022"
+for i in range(1,200):
+	f = urllib.request.urlopen('http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=' + nuffink, data=None)
+	html = f.read().decode('utf-8')
+	print(html)
+	nuffink = re.findall("next nothing is (\d+)",html)[0]
+	f.close()
+
+"""
+
+
+
+
+#1 edit to 
+# nothing = 8022
+
+
+Answer
+http://www.pythonchallenge.com/pc/def/peak.html
+	  

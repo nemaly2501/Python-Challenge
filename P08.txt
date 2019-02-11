@@ -1,0 +1,14 @@
+from PIL import Image
+im = Image.open("oxygen.png")
+print(im.size, im.mode)
+chars = []
+for x in range(0, 630, 7):
+    (r, g, b, a) = im.getpixel((x, 43))
+    if r == g == b:
+        chars.append(chr(r))
+print("".join(chars))
+
+print("".join(chr(x) for x in [105, 110, 116, 101, 103, 114, 105, 116, 121]))
+
+Answer
+http://www.pythonchallenge.com/pc/def/integrity.html

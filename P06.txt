@@ -1,0 +1,15 @@
+import pickle
+from pprint import pprint
+from urllib.request import urlopen
+
+response = urlopen('http://www.pythonchallenge.com/pc/def/banner.p')
+data = pickle.load(response)
+
+for l in data:
+	for t in l:
+		print(t[0]*t[1], end='')
+	print()
+	
+	
+Answer 
+http://www.pythonchallenge.com/pc/def/channel.html
